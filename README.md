@@ -1,32 +1,35 @@
 # Credit Card Fraud Detection Dashboard
 
-Course project for 24CSE0316 (AI and Machine Learning).
+An interactive Streamlit dashboard for exploratory data analysis, model benchmarking, and real-time transaction fraud prediction using the ULB Credit Card Fraud dataset.
 
 ## Setup
 
-1. Put `creditcard.csv` (Kaggle, ULB dataset) in this folder.
-2. Install dependencies:
-   ```
+1. Download `creditcard.csv` from the [Kaggle ULB Credit Card Fraud Dataset](https://kaggle.com) and place it in the project root folder.
+2. Install the required dependencies:
+   ```bash
    pip install -r requirements.txt
    ```
 
-## Run
+## Usage
 
-1. Train the models (only needs to be done once, or whenever you change something in `train.py`):
-   ```
+1. **Train the models:**
+   ```bash
    python train.py
    ```
-   This creates `saved_models.pkl` in this folder. Takes a few minutes - KNN and Random Forest are the slow ones.
+   *Note: You only need to run this once (or whenever `train.py` is modified). It generates `saved_models.pkl` and may take a few minutes due to KNN and Random Forest training.*
 
-2. Launch the dashboard:
-   ```
+2. **Launch the dashboard:**
+   ```bash
    streamlit run app.py
    ```
-   This opens in your browser automatically (usually `localhost:8501`).
+   The app will open automatically in your browser at `http://localhost:8501`.
 
-## Files
+## Project Structure
 
-- `data_preprocessing.py` - loads the CSV, scales Amount/Time, splits into train/test
-- `train.py` - trains all 5 models (Logistic Regression, Decision Tree, Random Forest, Naive Bayes, KNN), evaluates them, saves everything to `saved_models.pkl`
-- `app.py` - Streamlit dashboard that reads `saved_models.pkl` and shows EDA, PCA projection, model comparison, feature importance, and a page to test a custom transaction
-- `saved_models.pkl` / `creditcard.csv` - not included here (too large for git) - generate the pkl yourself by running `train.py`, get the CSV from Kaggle
+| File | Description |
+| :--- | :--- |
+| `data_preprocessing.py` | Loads `creditcard.csv`, scales `Amount` and `Time`, and splits the data into training and testing sets. |
+| `train.py` | Trains and evaluates 5 classifiers (Logistic Regression, Decision Tree, Random Forest, Naive Bayes, and KNN) and saves the results to `saved_models.pkl`. |
+| `app.py` | Streamlit web application featuring EDA, PCA projections, model comparisons, feature importance, and a custom transaction tester. |
+| `saved_models.pkl` | Generated locally by running `train.py` (excluded from Git due to file size). |
+| `creditcard.csv` | Source dataset downloaded from Kaggle (excluded from Git due to file size). |
