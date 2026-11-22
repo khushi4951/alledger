@@ -1,5 +1,4 @@
-# Credit Card Fraud Detection Dashboard
-
+# Verdant Ledger
 An interactive Streamlit dashboard for exploratory data analysis, model benchmarking, and real-time transaction fraud prediction using the ULB Credit Card Fraud dataset.
 
 ## Setup
